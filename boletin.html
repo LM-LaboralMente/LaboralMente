@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,51 +10,25 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header>
-  <div class="container nav">
-    <a href="index.html"><img class="logo" src="laboralmente-logo.png" alt="LaboralMente Consultoría"></a>
-    <nav class="nav-links" aria-label="Navegación principal">
-      <a href="index.html">Inicio</a>
-      <a href="boletin.html">Boletín</a>
-      <a href="derecho-laboral.html">Derecho Laboral</a>
-      <a href="psicologia-organizacional.html">Psicología Organizacional</a>
-      <a href="empresas.html">Para Empresas</a>
-      <a href="estudiantes.html">Para Estudiantes</a>
-      <a href="sobre-nosotras.html">Sobre nosotras</a>
-      <a class="btn primary" href="dudas.html">Envíanos tu duda</a>
-    </nav>
-    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-  </div>
-</header>
-
+<header><div class="container nav"><a href="index.html"><img class="logo" src="laboralmente-logo.png" alt="LaboralMente Consultoría"></a><nav class="nav-links" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="boletin.html">Boletín</a><a href="derecho-laboral.html">Derecho Laboral</a><a href="psicologia-organizacional.html">Psicología Organizacional</a><a href="empresas.html">Para Empresas</a><a href="estudiantes.html">Para Estudiantes</a><a href="sobre-nosotras.html">Sobre nosotras</a><a class="btn primary" href="dudas.html">Envíanos tu duda</a></nav><button class="menu-btn" aria-label="Abrir menú">☰</button></div></header>
 <main>
 <section class="page-hero"><div class="container"><div class="kicker">Biblioteca LaboralMente</div><h1>Boletín</h1><p>Información para entender mejor el trabajo, las organizaciones y tus derechos.</p></div></section>
 <section><div class="container">
-<div class="filters"><span class="filter active">Todos</span><a class="filter" href="derecho-laboral.html">Derecho Laboral</a><a class="filter" href="psicologia-organizacional.html">Psicología</a><a class="filter" href="empresas.html">Empresas</a><a class="filter" href="estudiantes.html">Estudiantes</a></div>
-<div class="grid-3">
-<article class="card article-card"><div class="tag">Derecho Laboral</div><h3>Finiquito vs. liquidación: ¿cuál me corresponde?</h3><div class="article-meta"><span>8 sep 2026</span><span>•</span><span>5 min</span></div><p>Dos conceptos diferentes que suelen confundirse.</p><a class="more" href="articulo-plantilla.html">Leer artículo →</a></article>
-<article class="card article-card"><div class="tag">Psicología Organizacional</div><h3>¿Ambiente laboral tóxico o conflicto puntual?</h3><div class="article-meta"><span>8 sep 2026</span><span>•</span><span>6 min</span></div><p>Cómo distinguir entre un problema aislado y una dinámica sostenida.</p><a class="more" href="articulo-plantilla.html">Leer artículo →</a></article>
-<article class="card article-card"><div class="tag">Para Estudiantes</div><h3>5 conceptos de Derecho Laboral que debes dominar</h3><div class="article-meta"><span>8 sep 2026</span><span>•</span><span>4 min</span></div><p>Una guía breve para comenzar a estudiar la materia.</p><a class="more" href="articulo-plantilla.html">Leer artículo →</a></article>
-</div></div></section>
+<div class="filters" id="postFilters"><button class="filter active" data-filter="all">Todos</button><button class="filter" data-filter="Derecho Laboral">Derecho Laboral</button><button class="filter" data-filter="Psicología Organizacional">Psicología</button><button class="filter" data-filter="Empresas">Empresas</button><button class="filter" data-filter="Trabajadores">Trabajadores</button><button class="filter" data-filter="Estudiantes">Estudiantes</button></div>
+<div class="grid-3" id="postGrid">
+{% for post in site.posts %}
+<article class="card article-card post-card" data-category="{{ post.category }}" data-audience="{{ post.audience | join: '|' }}">
+{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}
+<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.date | date: "%d/%m/%Y" }}</span><span>•</span><span>{{ post.reading_time }} min</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer artículo →</a></article>
+{% endfor %}
+</div>
+{% if site.posts.size == 0 %}<div class="empty-state"><h3>Estamos preparando las primeras publicaciones.</h3><p>Muy pronto encontrarás aquí contenido de Derecho Laboral y Psicología Organizacional.</p></div>{% endif %}
+<div class="empty-state" id="filterEmpty" hidden><h3>No hay publicaciones en esta categoría todavía.</h3><p>Puedes explorar otra sección o enviarnos una duda para inspirar próximos temas.</p></div>
+</div></section>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img class="logo" src="laboralmente-logo.png" alt="LaboralMente">
-        <p style="margin-top:12px">Un espacio para entender el trabajo desde el Derecho Laboral y la Psicología Organizacional.</p>
-      </div>
-      <div><h4>Contenido</h4><p><a href="boletin.html">Boletín</a></p><p><a href="derecho-laboral.html">Derecho Laboral</a></p><p><a href="psicologia-organizacional.html">Psicología Organizacional</a></p></div>
-      <div><h4>LaboralMente</h4><p><a href="empresas.html">Para Empresas</a></p><p><a href="estudiantes.html">Para Estudiantes</a></p><p><a href="sobre-nosotras.html">Sobre nosotras</a></p><p><a href="dudas.html">Envíanos tu duda</a></p></div>
-    </div>
-    <div class="copy">© 2026 LaboralMente Consultoría. Contenido informativo; no sustituye asesoría profesional individual.</div>
-  </div>
-</footer>
+<footer><div class="container"><div class="footer-grid"><div><img class="logo" src="laboralmente-logo.png" alt="LaboralMente"><p style="margin-top:12px">Un espacio para entender el trabajo desde el Derecho Laboral y la Psicología Organizacional.</p></div><div><h4>Contenido</h4><p><a href="boletin.html">Boletín</a></p><p><a href="derecho-laboral.html">Derecho Laboral</a></p><p><a href="psicologia-organizacional.html">Psicología Organizacional</a></p></div><div><h4>LaboralMente</h4><p><a href="empresas.html">Para Empresas</a></p><p><a href="estudiantes.html">Para Estudiantes</a></p><p><a href="sobre-nosotras.html">Sobre nosotras</a></p><p><a href="dudas.html">Envíanos tu duda</a></p></div></div><div class="copy">© 2026 LaboralMente Consultoría. Contenido informativo; no sustituye asesoría profesional individual.</div></div></footer>
 <script>
-const btn=document.querySelector('.menu-btn'), navEl=document.querySelector('.nav-links');
-if(btn&&navEl){btn.addEventListener('click',()=>{navEl.style.display=navEl.style.display==='flex'?'none':'flex';navEl.style.flexDirection='column';navEl.style.position='absolute';navEl.style.top='86px';navEl.style.left='4%';navEl.style.right='4%';navEl.style.background='#FCF9F3';navEl.style.padding='20px';navEl.style.border='1px solid #DDD3C5';navEl.style.borderRadius='16px';});}
+const btn=document.querySelector('.menu-btn'),navEl=document.querySelector('.nav-links');if(btn&&navEl){btn.addEventListener('click',()=>navEl.classList.toggle('open'));}
+const filters=[...document.querySelectorAll('#postFilters .filter')],cards=[...document.querySelectorAll('.post-card')],empty=document.getElementById('filterEmpty');filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));f.classList.add('active');const value=f.dataset.filter;let shown=0;cards.forEach(c=>{const match=value==='all'||c.dataset.category===value||c.dataset.audience.split('|').includes(value);c.hidden=!match;if(match)shown++;});if(empty)empty.hidden=shown!==0;}));
 </script>
-
 </body></html>

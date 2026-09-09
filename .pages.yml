@@ -1,0 +1,100 @@
+media:
+  - name: article_images
+    label: Imágenes del boletín
+    input: media/uploads
+    output: /LaboralMente/media/uploads
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+content:
+  - name: posts
+    label: Publicaciones del boletín
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{title}.md"
+    view:
+      fields: [title, date, category, audience, published]
+      primary: title
+      sort: [date, title]
+      search: [title, summary, category, audience]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Título
+        type: string
+        required: true
+      - name: date
+        label: Fecha de publicación
+        type: date
+        required: true
+      - name: category
+        label: Categoría principal
+        type: select
+        required: true
+        options:
+          values:
+            - Derecho Laboral
+            - Psicología Organizacional
+      - name: audience
+        label: Dirigido a
+        type: select
+        required: true
+        options:
+          multiple: true
+          min: 1
+          values:
+            - Trabajadores
+            - Empresas
+            - Estudiantes
+            - Público general
+      - name: summary
+        label: Resumen
+        type: text
+        required: true
+        description: Aparece en la tarjeta del boletín. Escribe 1 o 2 frases breves.
+      - name: reading_time
+        label: Minutos de lectura
+        type: number
+        required: true
+      - name: author
+        label: Autora
+        type: string
+        default: LaboralMente
+        required: true
+      - name: cover
+        label: Imagen de portada
+        type: image
+        required: false
+        options:
+          media: article_images
+          path: media/uploads
+          rename: safe
+      - name: published
+        label: Publicado
+        type: boolean
+        default: true
+        description: Desactívalo para guardar el artículo como borrador sin mostrarlo en la página.
+      - name: body
+        label: Contenido del artículo
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: article_images
+          path: media/uploads
+          rename: safe
+          switcher: true
+
+settings:
+  hide: true
+  commit:
+    identity: app
+    templates:
+      create: "Publicar {filename}"
+      update: "Actualizar {filename}"
+      delete: "Eliminar {filename}"
+      rename: "Renombrar {oldFilename} a {newFilename}"

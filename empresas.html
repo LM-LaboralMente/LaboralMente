@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,11 +30,9 @@
 
 <main>
 <section class="page-hero"><div class="container"><div class="kicker">🏢 Para Empresas</div><h1>Buenas relaciones laborales también son una estrategia de negocio.</h1><p>Información jurídica y organizacional para prevenir conflictos, tomar mejores decisiones y construir espacios de trabajo más saludables.</p></div></section>
-<section><div class="container grid-3">
-<div class="card"><h3>Contratación y expedientes</h3><p>Buenas prácticas para documentar correctamente una relación de trabajo.</p></div>
-<div class="card"><h3>Terminaciones laborales</h3><p>Aspectos que conviene revisar antes de terminar una relación laboral.</p></div>
-<div class="card"><h3>Clima y prevención</h3><p>Herramientas organizacionales para detectar riesgos antes de que escalen.</p></div>
-</div></section>
+<section><div class="container"><div class="grid-3">
+{% assign matched_count = 0 %}{% for post in site.posts %}{% if post.audience contains "Empresas" %}{% assign matched_count = matched_count | plus: 1 %}<article class="card article-card">{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.date | date: "%d/%m/%Y" }}</span><span>•</span><span>{{ post.reading_time }} min</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer →</a></article>{% endif %}{% endfor %}
+</div>{% if matched_count == 0 %}<div class="empty-state"><h3>Aún no hay publicaciones dirigidas a empresas.</h3><p>Cuando publiquemos un artículo para esta audiencia aparecerá aquí automáticamente.</p></div>{% endif %}</div></section>
 </main>
 
 <footer>

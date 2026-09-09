@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,11 +30,9 @@
 
 <main>
 <section class="page-hero"><div class="container"><div class="kicker">🎓 Para Estudiantes</div><h1>Derecho Laboral sin tener que descifrarlo.</h1><p>Conceptos, ejemplos y herramientas para entender lo que estás estudiando y llevarlo a casos reales.</p></div></section>
-<section><div class="container grid-3">
-<div class="card"><h3>Conceptos básicos</h3><p>Relación de trabajo, subordinación, salario, jornada y otros conceptos esenciales.</p></div>
-<div class="card"><h3>Casos prácticos</h3><p>Situaciones sencillas para aprender a identificar problemas jurídicos.</p></div>
-<div class="card"><h3>Psicología aplicada</h3><p>Conceptos organizacionales explicados con ejemplos del mundo laboral.</p></div>
-</div></section>
+<section><div class="container"><div class="grid-3">
+{% assign matched_count = 0 %}{% for post in site.posts %}{% if post.audience contains "Estudiantes" %}{% assign matched_count = matched_count | plus: 1 %}<article class="card article-card">{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.date | date: "%d/%m/%Y" }}</span><span>•</span><span>{{ post.reading_time }} min</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer →</a></article>{% endif %}{% endfor %}
+</div>{% if matched_count == 0 %}<div class="empty-state"><h3>Aún no hay publicaciones dirigidas a estudiantes.</h3><p>Cuando publiquemos un artículo para esta audiencia aparecerá aquí automáticamente.</p></div>{% endif %}</div></section>
 </main>
 
 <footer>

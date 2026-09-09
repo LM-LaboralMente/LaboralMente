@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -57,10 +59,11 @@
  <div class="container">
   <div class="section-head"><div><div class="kicker">Lo último</div><h2>Del boletín</h2></div><a class="btn secondary" href="boletin.html">Ver todos</a></div>
   <div class="grid-3">
-   <article class="card article-card"><div class="tag">Derecho Laboral</div><h3>Finiquito vs. liquidación: ¿cuál me corresponde?</h3><div class="article-meta"><span>5 min</span><span>•</span><span>Guía básica</span></div><p>Una explicación clara de dos conceptos que suelen confundirse.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
-   <article class="card article-card"><div class="tag">Psicología Organizacional</div><h3>¿Ambiente laboral tóxico o conflicto puntual?</h3><div class="article-meta"><span>6 min</span><span>•</span><span>Bienestar</span></div><p>Claves para distinguir entre una situación aislada y un patrón organizacional.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
-   <article class="card article-card"><div class="tag">Para Estudiantes</div><h3>5 conceptos de Derecho Laboral que debes dominar</h3><div class="article-meta"><span>4 min</span><span>•</span><span>Apuntes</span></div><p>Una introducción breve y útil para empezar a entender la materia.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
+   {% for post in site.posts limit:3 %}
+   <article class="card article-card">{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.reading_time }} min</span><span>•</span><span>{{ post.date | date: "%d/%m/%Y" }}</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer →</a></article>
+   {% endfor %}
   </div>
+  {% if site.posts.size == 0 %}<div class="empty-state"><h3>Próximamente: nuestras primeras publicaciones.</h3><p>Estamos preparando contenido claro y útil para trabajadores, empresas y estudiantes.</p></div>{% endif %}
  </div>
 </section>
 <section>

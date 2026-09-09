@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,11 +30,10 @@
 
 <main>
 <section class="page-hero"><div class="container"><div class="kicker">🧠 Psicología Organizacional</div><h1>El trabajo también se vive, se siente y se piensa.</h1><p>Hablamos de las personas detrás de las organizaciones y de cómo construir mejores relaciones de trabajo.</p><div class="chips"><span class="chip">Clima laboral</span><span class="chip">Liderazgo</span><span class="chip">Burnout</span><span class="chip">NOM-035</span><span class="chip">Cultura</span></div></div></section>
-<section><div class="container grid-3">
-<div class="card article-card"><div class="tag">Clima laboral</div><h3>¿Ambiente tóxico o conflicto puntual?</h3><p>Señales para diferenciar un episodio aislado de una dinámica organizacional.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-<div class="card article-card"><div class="tag">Liderazgo</div><h3>Cuando dirigir no significa controlar</h3><p>Ideas sencillas para entender liderazgo, confianza y autonomía.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-<div class="card article-card"><div class="tag">Bienestar</div><h3>Burnout: qué es y qué no es</h3><p>Una explicación accesible del agotamiento ocupacional y sus señales.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-</div></section>
+<section><div class="container"><div class="grid-3">
+{% assign matched = site.posts | where: "category", "Psicología Organizacional" %}
+{% for post in matched %}<article class="card article-card">{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.date | date: "%d/%m/%Y" }}</span><span>•</span><span>{{ post.reading_time }} min</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer →</a></article>{% endfor %}
+</div>{% if matched.size == 0 %}<div class="empty-state"><h3>Aún no hay publicaciones de Psicología Organizacional.</h3><p>Cuando publiquemos un artículo de esta sección aparecerá aquí automáticamente.</p></div>{% endif %}</div></section>
 </main>
 
 <footer>

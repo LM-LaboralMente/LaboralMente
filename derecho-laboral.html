@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,11 +30,10 @@
 
 <main>
 <section class="page-hero"><div class="container"><div class="kicker">⚖ Derecho Laboral</div><h1>Tus derechos no deberían necesitar traducción.</h1><p>Explicamos las reglas del trabajo de manera sencilla para entender qué significan en situaciones reales.</p><div class="chips"><span class="chip">Despidos</span><span class="chip">Finiquitos</span><span class="chip">Vacaciones</span><span class="chip">PTU</span><span class="chip">Contratos</span><span class="chip">Conciliación</span></div></div></section>
-<section><div class="container grid-3">
-<div class="card article-card"><div class="tag">Terminación laboral</div><h3>Finiquito vs. liquidación</h3><p>Qué cambia según la forma en que termina la relación laboral.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-<div class="card article-card"><div class="tag">Vacaciones</div><h3>¿Cuántos días me corresponden?</h3><p>Cómo entender el derecho a vacaciones y su incremento por antigüedad.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-<div class="card article-card"><div class="tag">Despido</div><h3>¿Me pueden despedir por llegar tarde?</h3><p>Qué revisar antes de asumir que cualquier retardo justifica un despido.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
-</div></section>
+<section><div class="container"><div class="grid-3">
+{% assign matched = site.posts | where: "category", "Derecho Laboral" %}
+{% for post in matched %}<article class="card article-card">{% if post.cover %}<a class="card-cover-link" href="{{ post.url | relative_url }}"><img class="card-cover" src="{{ post.cover }}" alt=""></a>{% endif %}<div class="tag">{{ post.category }}</div><h3>{{ post.title }}</h3><div class="article-meta"><span>{{ post.date | date: "%d/%m/%Y" }}</span><span>•</span><span>{{ post.reading_time }} min</span></div><p>{{ post.summary }}</p><a class="more" href="{{ post.url | relative_url }}">Leer →</a></article>{% endfor %}
+</div>{% if matched.size == 0 %}<div class="empty-state"><h3>Aún no hay publicaciones de Derecho Laboral.</h3><p>Cuando publiquemos un artículo de esta sección aparecerá aquí automáticamente.</p></div>{% endif %}</div></section>
 </main>
 
 <footer>

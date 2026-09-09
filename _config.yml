@@ -1,0 +1,15 @@
+title: L&M Consultoría LaboralMente
+description: Derecho Laboral y Psicología Organizacional explicados de forma clara.
+url: "https://lm-laboralmente.github.io"
+baseurl: "/LaboralMente"
+lang: es-MX
+timezone: America/Mexico_City
+permalink: /articulos/:title.html
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      author: LaboralMente

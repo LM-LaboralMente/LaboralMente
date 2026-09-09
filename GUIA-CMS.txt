@@ -1,0 +1,44 @@
+LABORALMENTE — GUÍA RÁPIDA PARA PUBLICAR SIN HTML
+
+Una vez que esta versión esté subida a GitHub:
+
+1. Entra a https://app.pagescms.org/
+2. Pulsa “Sign in with GitHub”.
+3. Autoriza/instala Pages CMS para la cuenta u organización LM-LaboralMente.
+4. Dale acceso al repositorio “LaboralMente”.
+5. Abre el repositorio en Pages CMS.
+6. En el menú aparecerá “Publicaciones del boletín”.
+7. Pulsa “New” / “Nueva publicación”.
+8. Completa:
+   - Título
+   - Fecha
+   - Categoría
+   - Dirigido a
+   - Resumen
+   - Minutos de lectura
+   - Autora
+   - Imagen de portada (opcional)
+   - Publicado (encendido = visible; apagado = borrador)
+   - Contenido del artículo
+9. Guarda.
+10. GitHub Pages publicará el cambio automáticamente. Normalmente tarda unos minutos.
+
+NO necesitas crear HTML para cada artículo.
+
+El sistema hace automáticamente lo siguiente:
+- El artículo aparece en Boletín.
+- Los 3 artículos más recientes aparecen en Inicio.
+- Si es Derecho Laboral, aparece también en Derecho Laboral.
+- Si es Psicología Organizacional, aparece también en Psicología Organizacional.
+- Si marcas Empresas, aparece en Para Empresas.
+- Si marcas Estudiantes, aparece en Para Estudiantes.
+- La página individual del artículo se crea automáticamente.
+
+BORRADORES
+Puedes apagar “Publicado” para guardar un texto sin que aparezca públicamente.
+
+IMÁGENES
+Las imágenes que subas desde Pages CMS se guardan en media/uploads dentro del repositorio.
+
+IMPORTANTE
+No borres .pages.yml, _config.yml, _layouts ni _posts. Son parte del sistema de publicación.
