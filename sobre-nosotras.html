@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="LaboralMente: Derecho Laboral y Psicología Organizacional explicados de forma clara.">
+<title>Sobre nosotras | LaboralMente</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html"><img class="logo" src="laboralmente-logo.png" alt="LaboralMente Consultoría"></a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="boletin.html">Boletín</a>
+      <a href="derecho-laboral.html">Derecho Laboral</a>
+      <a href="psicologia-organizacional.html">Psicología Organizacional</a>
+      <a href="empresas.html">Para Empresas</a>
+      <a href="estudiantes.html">Para Estudiantes</a>
+      <a href="sobre-nosotras.html">Sobre nosotras</a>
+      <a class="btn primary" href="dudas.html">Envíanos tu duda</a>
+    </nav>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="page-hero"><div class="container"><div class="kicker">L&M · LaboralMente</div><h1>Las relaciones de trabajo tienen dos lados: las reglas y las personas.</h1><p>LaboralMente nace de la unión entre el Derecho Laboral y la Psicología Organizacional.</p></div></section>
+<section><div class="container grid-2">
+<div><h2>¿Por qué LaboralMente?</h2><p style="margin-top:18px">Creamos este espacio porque entender el mundo del trabajo no debería requerir hablar como abogado, especialista en Recursos Humanos o psicólogo. Nuestro objetivo es acercar información clara, responsable y útil a trabajadores, empresas y estudiantes.</p></div>
+<div class="card"><h3>Nuestra forma de explicar</h3><p>Lenguaje claro, contexto suficiente, enfoque práctico y respeto por las personas que integran las relaciones de trabajo.</p></div>
+</div></section>
+<section class="soft"><div class="container"><div class="section-head"><div><div class="kicker">Equipo</div><h2>Sobre nosotras</h2></div><p>Esta sección está lista para que agreguen nombres, fotografías y perfiles profesionales cuando quieran publicarlos.</p></div>
+<div class="grid-2"><div class="card profile"><div class="profile-placeholder">L</div><div><h3>Perfil profesional 1</h3><p>Agrega aquí nombre, formación, experiencia y temas de interés.</p></div></div><div class="card profile"><div class="profile-placeholder">M</div><div><h3>Perfil profesional 2</h3><p>Agrega aquí nombre, formación, experiencia y temas de interés.</p></div></div></div></div></section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="laboralmente-logo.png" alt="LaboralMente">
+        <p style="margin-top:12px">Un espacio para entender el trabajo desde el Derecho Laboral y la Psicología Organizacional.</p>
+      </div>
+      <div><h4>Contenido</h4><p><a href="boletin.html">Boletín</a></p><p><a href="derecho-laboral.html">Derecho Laboral</a></p><p><a href="psicologia-organizacional.html">Psicología Organizacional</a></p></div>
+      <div><h4>LaboralMente</h4><p><a href="empresas.html">Para Empresas</a></p><p><a href="estudiantes.html">Para Estudiantes</a></p><p><a href="sobre-nosotras.html">Sobre nosotras</a></p><p><a href="dudas.html">Envíanos tu duda</a></p></div>
+    </div>
+    <div class="copy">© 2026 LaboralMente Consultoría. Contenido informativo; no sustituye asesoría profesional individual.</div>
+  </div>
+</footer>
+<script>
+const btn=document.querySelector('.menu-btn'), navEl=document.querySelector('.nav-links');
+if(btn&&navEl){btn.addEventListener('click',()=>{navEl.style.display=navEl.style.display==='flex'?'none':'flex';navEl.style.flexDirection='column';navEl.style.position='absolute';navEl.style.top='86px';navEl.style.left='4%';navEl.style.right='4%';navEl.style.background='#FCF9F3';navEl.style.padding='20px';navEl.style.border='1px solid #DDD3C5';navEl.style.borderRadius='16px';});}
+</script>
+
+</body></html>

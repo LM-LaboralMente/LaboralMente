@@ -1,367 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="L&M Consultoría LaboralMente. Derecho laboral y psicología organizacional explicados de forma clara, práctica y humana.">
-  <title>L&M Consultoría | LaboralMente</title>
-  <style>
-    :root{
-      --ink:#37585D;
-      --ink-2:#2D4E53;
-      --cream:#F7F2E9;
-      --paper:#FCF9F3;
-      --sand:#CBAE90;
-      --moss:#7E8C54;
-      --accent:#A88F72;
-      --muted:#69716B;
-      --line:#DDD3C5;
-      --shadow:0 16px 40px rgba(23,59,58,.10);
-      --radius:22px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family: Georgia, "Times New Roman", serif;
-      color:var(--ink);
-      background:var(--paper);
-      line-height:1.6;
-    }
-    a{text-decoration:none;color:inherit}
-    .sans{font-family:Arial,Helvetica,sans-serif}
-    .container{width:min(1120px,92%);margin:auto}
-    header{
-      position:sticky;top:0;z-index:20;
-      background:rgba(255,253,249,.94);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-    nav{
-      min-height:88px;display:flex;align-items:center;
-      justify-content:space-between;gap:24px;
-    }
-    .brand{display:flex;align-items:center}
-    .brand-logo{
-      display:block;
-      width:190px;
-      max-height:62px;
-      object-fit:contain;
-      object-position:left center;
-    }
-    .menu{display:flex;gap:24px;align-items:center;font:14px Arial,sans-serif}
-    .menu a:hover{color:var(--moss)}
-    .cta{
-      background:var(--ink);color:white;padding:12px 18px;
-      border-radius:999px;font-weight:bold;
-    }
-    .hero{background:linear-gradient(90deg,var(--paper) 0 58%,#E8DDCF 58% 100%);padding:90px 0 82px}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
-    .eyebrow{
-      color:var(--moss);font:bold 12px Arial,sans-serif;
-      letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;
-    }
-    h1{font-size:clamp(46px,6vw,78px);line-height:.98;letter-spacing:-2px;margin-bottom:25px}
-    h1 em{font-weight:normal;color:var(--moss)}
-    .hero p{font-size:19px;max-width:650px;color:#465653;margin-bottom:32px}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-block;padding:14px 21px;border-radius:999px;
-      font:600 14px Arial,sans-serif;border:1px solid var(--ink);
-    }
-    .btn.primary{background:var(--ink);color:white}
-    .btn.secondary{background:transparent}
-    .hero-card{
-      background:var(--ink);color:white;padding:34px;border-radius:30px;border:1px solid rgba(255,255,255,.08);
-      box-shadow:var(--shadow);transform:rotate(1deg)
-    }
-    .hero-card .big{font-size:38px;line-height:1.05;margin:18px 0}
-    .hero-card p{color:#dbe6e3;font-size:16px}
-    .hero-card small{font:11px Arial,sans-serif;letter-spacing:1.8px;color:#E4D6C5}
-
-    .brand-showcase{transform:none;padding:26px}
-    .logo-frame{
-      background:var(--paper);
-      border-radius:22px;
-      padding:22px;
-      margin-bottom:22px;
-      box-shadow:0 10px 28px rgba(0,0,0,.08);
-    }
-    .logo-frame img{width:100%;display:block}
-    .brand-showcase small{display:block;margin:2px 0 10px}
-    .brand-showcase p{margin:0;color:#EDF1E9}
-
-    section{padding:84px 0}
-    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}
-    h2{font-size:42px;line-height:1.05;letter-spacing:-1px}
-    .section-head p{max-width:500px;color:var(--muted);font:15px Arial,sans-serif}
-    .audience{background:var(--paper)}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{
-      border:1px solid var(--line);border-radius:var(--radius);
-      padding:30px;background:var(--paper);transition:.2s;
-    }
-    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-    .icon{font-size:28px;margin-bottom:18px}
-    .card h3{font-size:25px;margin-bottom:10px}
-    .card p{color:var(--muted);font:15px/1.7 Arial,sans-serif}
-    .card a{display:inline-block;margin-top:20px;font:bold 13px Arial,sans-serif;color:var(--moss)}
-    .newsletter{background:var(--ink);color:white}
-    .newsletter .section-head p{color:#cbd9d6}
-    .articles{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
-    .article{
-      border:1px solid var(--line);border-radius:var(--radius);
-      padding:30px;background:white;min-height:230px
-    }
-    .article.featured{background:var(--cream);border:none}
-    .tag{font:bold 11px Arial,sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:var(--moss)}
-    .article h3{font-size:29px;line-height:1.15;margin:15px 0}
-    .article p{font:15px/1.7 Arial,sans-serif;color:var(--muted)}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .panel{padding:42px;border-radius:28px;background:var(--cream)}
-    .panel.dark{background:var(--ink);color:white}
-    .panel p{margin:16px 0 24px;font:15px/1.7 Arial,sans-serif}
-    .topics{display:flex;flex-wrap:wrap;gap:10px}
-    .pill{padding:9px 13px;border:1px solid currentColor;border-radius:999px;font:12px Arial,sans-serif}
-    .about{text-align:center;background:#EEF0E4}
-    .about p{max-width:760px;margin:20px auto 30px;font-size:19px;color:#4e5b58}
-    .contact-form{margin-top:24px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .contact-form label{display:block;font:600 13px Arial,sans-serif;color:var(--ink);margin-bottom:16px}
-    .contact-form input,.contact-form select,.contact-form textarea{
-      width:100%;margin-top:7px;padding:13px 14px;border:1px solid var(--line);
-      border-radius:12px;background:white;color:var(--ink);font:14px Arial,sans-serif;
-      outline:none;
-    }
-    .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
-      border-color:var(--ink-2);box-shadow:0 0 0 3px rgba(86,102,58,.12)
-    }
-    .consent{display:flex!important;align-items:flex-start;gap:9px}
-    .consent input{width:auto;margin:2px 0 0}
-    .form-note{font:12px Arial,sans-serif!important;color:var(--muted)!important;margin:12px 0 0!important}
-    footer{background:#37585D;color:#d8e3e0;padding:42px 0}
-    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center}
-    footer small{font:12px Arial,sans-serif;color:#aebfbc}
-    .social{display:flex;gap:18px;font:13px Arial,sans-serif}
-    @media(max-width:800px){
-      .menu{display:none}
-      .brand-logo{width:155px;max-height:55px}
-      .hero{padding:65px 0}
-      .hero-grid,.articles,.split{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      h2{font-size:35px}
-      .hero-card{transform:none}
-      .section-head{display:block}
-      .section-head p{margin-top:15px}
-      .footer-grid{display:block}
-      .social{margin-top:18px}
-    }
-  
-    .eyebrow{color:var(--moss)!important}
-    .tag{color:var(--moss)!important}
-    .hero-card{box-shadow:0 18px 45px rgba(55,88,93,.20)}
-    .card:hover{border-color:#C8CFAE}
-    .pill{background:rgba(126,140,84,.06)}
-    .panel.dark .pill{background:rgba(255,255,255,.04)}
-    .cta:hover,.btn.primary:hover{background:var(--moss)}
-    .btn,.cta{transition:.2s ease}
-    .logo-frame{background:var(--cream)}
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="LaboralMente: Derecho Laboral y Psicología Organizacional explicados de forma clara.">
+<title>Inicio | LaboralMente</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-  <div class="container">
-    <nav>
-      <a class="brand" href="#inicio" aria-label="L&M Consultoría LaboralMente">
-        <img class="brand-logo" src="laboralmente-logo.png" alt="Logo de LaboralMente Consultoría">
-      </a>
-      <div class="menu">
-        <a href="#boletin">Boletín</a>
-        <a href="#trabajadores">Trabajadores</a>
-        <a href="#empresas">Empresas</a>
-        <a href="#estudiantes">Estudiantes</a>
-        <a class="cta" href="#contacto">Tengo una duda</a>
-      </div>
+  <div class="container nav">
+    <a href="index.html"><img class="logo" src="laboralmente-logo.png" alt="LaboralMente Consultoría"></a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="boletin.html">Boletín</a>
+      <a href="derecho-laboral.html">Derecho Laboral</a>
+      <a href="psicologia-organizacional.html">Psicología Organizacional</a>
+      <a href="empresas.html">Para Empresas</a>
+      <a href="estudiantes.html">Para Estudiantes</a>
+      <a href="sobre-nosotras.html">Sobre nosotras</a>
+      <a class="btn primary" href="dudas.html">Envíanos tu duda</a>
     </nav>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Derecho laboral · Psicología organizacional</div>
-        <h1>Entender el trabajo también es <em>cuidarte.</em></h1>
-        <p>
-          Un espacio para resolver dudas sobre el mundo laboral sin lenguaje complicado.
-          Información jurídica, psicología organizacional y herramientas prácticas para
-          trabajadores, empresas y estudiantes.
-        </p>
-        <div class="buttons">
-          <a class="btn primary" href="#boletin">Explorar el boletín</a>
-          <a class="btn secondary" href="#contacto">Tengo una duda</a>
-        </div>
-      </div>
-      <div class="hero-card brand-showcase">
-        <div class="logo-frame">
-          <img src="laboralmente-logo.png" alt="LaboralMente Consultoría">
-        </div>
-        <small>BOLETÍN LABORAL Y ORGANIZACIONAL</small>
-        <p>Derechos · relaciones laborales · bienestar · organizaciones</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="audience">
-    <div class="container">
-      <div class="section-head">
-        <h2>¿Qué buscas?</h2>
-        <p>Elige el camino que más se acerque a tu situación. El contenido está pensado para ser útil y fácil de entender.</p>
-      </div>
-      <div class="cards">
-        <article class="card" id="trabajadores">
-          <div class="icon">👩‍💼</div>
-          <h3>Trabajadores</h3>
-          <p>Conoce tus derechos, identifica situaciones laborales y descubre qué opciones tienes antes de tomar una decisión.</p>
-          <a href="#boletin">VER CONTENIDO →</a>
-        </article>
-        <article class="card" id="empresas">
-          <div class="icon">🏢</div>
-          <h3>Empresas</h3>
-          <p>Herramientas para prevenir conflictos laborales, mejorar procesos y comprender mejor las relaciones de trabajo.</p>
-          <a href="#boletin">VER CONTENIDO →</a>
-        </article>
-        <article class="card" id="estudiantes">
-          <div class="icon">🎓</div>
-          <h3>Estudiantes</h3>
-          <p>Conceptos, casos y explicaciones prácticas para acercarte al Derecho Laboral y a la Psicología Organizacional.</p>
-          <a href="#boletin">VER CONTENIDO →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="boletin">
-    <div class="container">
-      <div class="section-head">
-        <h2>Del boletín</h2>
-        <p>Contenido breve para entender una situación laboral antes de perderte entre artículos, términos técnicos y opiniones.</p>
-      </div>
-      <div class="articles">
-        <article class="article featured">
-          <div class="tag">Derecho laboral</div>
-          <h3>Finiquito vs. liquidación: ¿cuál me corresponde?</h3>
-          <p>Dos conceptos que suelen confundirse. Aquí te explicamos la diferencia y en qué situaciones puede corresponder cada uno.</p>
-          <a class="btn primary" href="#">Leer artículo</a>
-        </article>
-        <article class="article">
-          <div class="tag">Psicología organizacional</div>
-          <h3>¿Ambiente laboral tóxico o un conflicto puntual?</h3>
-          <p>Aprende a distinguir entre un problema aislado y señales de un entorno laboral que necesita atención.</p>
-          <a href="#" style="display:inline-block;margin-top:20px;font:bold 13px Arial,sans-serif;color:var(--moss)">Leer artículo →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container split">
-      <div class="panel">
-        <div class="eyebrow">⚖ Derecho laboral</div>
-        <h2>Lo jurídico, en palabras que sí puedas entender.</h2>
-        <p>Contratos, vacaciones, aguinaldo, PTU, despidos, renuncias, finiquitos, conciliación y mucho más.</p>
-        <div class="topics">
-          <span class="pill">Despido</span><span class="pill">Finiquito</span>
-          <span class="pill">Vacaciones</span><span class="pill">PTU</span>
-          <span class="pill">Contratos</span><span class="pill">Conciliación</span>
-        </div>
-      </div>
-      <div class="panel dark">
-        <div class="eyebrow">🧠 Psicología organizacional</div>
-        <h2>Porque trabajar también tiene una dimensión humana.</h2>
-        <p>Clima laboral, liderazgo, comunicación, motivación, riesgos psicosociales, bienestar y cultura organizacional.</p>
-        <div class="topics">
-          <span class="pill">NOM-035</span><span class="pill">Clima laboral</span>
-          <span class="pill">Liderazgo</span><span class="pill">Burnout</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="about">
-    <div class="container">
-      <div class="eyebrow">L&M CONSULTORÍA · LABORALMENTE</div>
-      <h2>Información para tomar mejores decisiones.</h2>
-      <p>
-        Este espacio nace de la combinación entre el Derecho Laboral y la Psicología Organizacional:
-        dos disciplinas que, juntas, permiten mirar el trabajo desde sus reglas y también desde las personas.
-      </p>
-      <a class="btn primary" href="#contacto">Conoce LaboralMente</a>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-      <div class="section-head">
-        <h2>¿Tienes una duda?</h2>
-        <p>Déjanos la duda o tema que te gustaría que investiguemos. Podremos revisarlo y convertir las preguntas más relevantes en futuros contenidos de LaboralMente.</p>
-      </div>
-      <div class="panel">
-        <h3 style="font-size:28px">Cuéntanos tu duda.</h3>
-        <p>Envíanos tu pregunta. La revisaremos posteriormente para investigar el tema y, cuando corresponda, preparar contenido claro y útil sobre él.</p>
-        <form action="https://formspree.io/f/TU_ID" method="POST" class="contact-form">
-          <div class="form-grid">
-            <label>Nombre
-              <input type="text" name="nombre" required placeholder="Tu nombre">
-            </label>
-            <label>Correo electrónico
-              <input type="email" name="email" required placeholder="tucorreo@ejemplo.com">
-            </label>
-          </div>
-          <div class="form-grid">
-            <label>Teléfono (opcional)
-              <input type="tel" name="telefono" placeholder="10 dígitos">
-            </label>
-            <label>¿Qué tema necesitas consultar?
-              <select name="tema" required>
-                <option value="">Selecciona una opción</option>
-                <option>Derecho laboral</option>
-                <option>Psicología organizacional</option>
-                <option>Empresa / Recursos Humanos</option>
-                <option>Consulta para estudiante</option>
-                <option>Otro</option>
-              </select>
-            </label>
-          </div>
-          <label>Cuéntanos brevemente tu duda
-            <textarea name="mensaje" rows="6" required placeholder="Escribe aquí tu situación o pregunta..."></textarea>
-          </label>
-          <label class="consent">
-            <input type="checkbox" required>
-            <span>Autorizo el contacto para dar seguimiento a mi solicitud.</span>
-          </label>
-          <button class="btn primary" type="submit">Enviar mi duda</button>
-          <p class="form-note">No compartas información sensible o documentos personales en este formulario.</p>
-        </form>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <div class="kicker">Derecho Laboral · Psicología Organizacional</div>
+   <h1>Entender el trabajo también es <em>cuidarte.</em></h1>
+   <p class="lead">Un espacio para resolver dudas sobre el mundo laboral sin lenguaje complicado. Información jurídica, psicología organizacional y herramientas prácticas para trabajadores, empresas y estudiantes.</p>
+   <a class="btn primary" href="boletin.html">Explorar el boletín</a>
+   <a class="btn secondary" href="dudas.html">Envíanos tu duda</a>
+  </div>
+  <div class="hero-card">
+   <div class="logo-frame"><img src="laboralmente-logo.png" alt="LaboralMente"></div>
+   <div class="kicker" style="color:#d9d0ba">Boletín laboral y organizacional</div>
+   <p>Derechos · relaciones laborales · bienestar · organizaciones</p>
+  </div>
+ </div>
+</section>
+<section>
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">Explora</div><h2>Contenido para cada necesidad</h2></div><p>Elige la sección que más se acerque a lo que quieres entender.</p></div>
+  <div class="grid-3">
+   <div class="card"><div class="tag">⚖ Derecho Laboral</div><h3>Tus derechos, sin traducciones.</h3><p>Despidos, finiquitos, vacaciones, jornadas, prestaciones, conciliación y más.</p><a class="more" href="derecho-laboral.html">Ver contenido →</a></div>
+   <div class="card"><div class="tag">🧠 Psicología Organizacional</div><h3>El lado humano del trabajo.</h3><p>Clima laboral, liderazgo, burnout, comunicación, NOM-035 y cultura organizacional.</p><a class="more" href="psicologia-organizacional.html">Ver contenido →</a></div>
+   <div class="card"><div class="tag">🏢 Empresas</div><h3>Prevenir también es gestionar.</h3><p>Herramientas jurídicas y organizacionales para mejores decisiones laborales.</p><a class="more" href="empresas.html">Ver contenido →</a></div>
+  </div>
+ </div>
+</section>
+<section class="soft">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">Lo último</div><h2>Del boletín</h2></div><a class="btn secondary" href="boletin.html">Ver todos</a></div>
+  <div class="grid-3">
+   <article class="card article-card"><div class="tag">Derecho Laboral</div><h3>Finiquito vs. liquidación: ¿cuál me corresponde?</h3><div class="article-meta"><span>5 min</span><span>•</span><span>Guía básica</span></div><p>Una explicación clara de dos conceptos que suelen confundirse.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
+   <article class="card article-card"><div class="tag">Psicología Organizacional</div><h3>¿Ambiente laboral tóxico o conflicto puntual?</h3><div class="article-meta"><span>6 min</span><span>•</span><span>Bienestar</span></div><p>Claves para distinguir entre una situación aislada y un patrón organizacional.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
+   <article class="card article-card"><div class="tag">Para Estudiantes</div><h3>5 conceptos de Derecho Laboral que debes dominar</h3><div class="article-meta"><span>4 min</span><span>•</span><span>Apuntes</span></div><p>Una introducción breve y útil para empezar a entender la materia.</p><a class="more" href="articulo-plantilla.html">Leer →</a></article>
+  </div>
+ </div>
+</section>
+<section>
+ <div class="container banner">
+  <div class="kicker" style="color:#d9d0ba">Tu pregunta importa</div>
+  <h2>Una duda puede convertirse en nuestro próximo artículo.</h2>
+  <p>Cuéntanos qué tema laboral u organizacional te gustaría que investigáramos.</p>
+  <a class="btn primary" style="background:var(--musgo);border-color:var(--musgo)" href="dudas.html">Envíanos tu duda</a>
+ </div>
+</section>
 </main>
 
 <footer>
-  <div class="container footer-grid">
-    <div>
-      <strong>L&M Consultoría LaboralMente</strong><br>
-      <small>Derecho laboral + Psicología organizacional</small>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="laboralmente-logo.png" alt="LaboralMente">
+        <p style="margin-top:12px">Un espacio para entender el trabajo desde el Derecho Laboral y la Psicología Organizacional.</p>
+      </div>
+      <div><h4>Contenido</h4><p><a href="boletin.html">Boletín</a></p><p><a href="derecho-laboral.html">Derecho Laboral</a></p><p><a href="psicologia-organizacional.html">Psicología Organizacional</a></p></div>
+      <div><h4>LaboralMente</h4><p><a href="empresas.html">Para Empresas</a></p><p><a href="estudiantes.html">Para Estudiantes</a></p><p><a href="sobre-nosotras.html">Sobre nosotras</a></p><p><a href="dudas.html">Envíanos tu duda</a></p></div>
     </div>
-    <div class="social">
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">TikTok</a>
-    </div>
+    <div class="copy">© 2026 LaboralMente Consultoría. Contenido informativo; no sustituye asesoría profesional individual.</div>
   </div>
 </footer>
+<script>
+const btn=document.querySelector('.menu-btn'), navEl=document.querySelector('.nav-links');
+if(btn&&navEl){btn.addEventListener('click',()=>{navEl.style.display=navEl.style.display==='flex'?'none':'flex';navEl.style.flexDirection='column';navEl.style.position='absolute';navEl.style.top='86px';navEl.style.left='4%';navEl.style.right='4%';navEl.style.background='#FCF9F3';navEl.style.padding='20px';navEl.style.border='1px solid #DDD3C5';navEl.style.borderRadius='16px';});}
+</script>
 
-</body>
-</html>
+</body></html>

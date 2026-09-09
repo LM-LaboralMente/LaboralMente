@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="LaboralMente: Derecho Laboral y Psicología Organizacional explicados de forma clara.">
+<title>Derecho Laboral | LaboralMente</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html"><img class="logo" src="laboralmente-logo.png" alt="LaboralMente Consultoría"></a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="boletin.html">Boletín</a>
+      <a href="derecho-laboral.html">Derecho Laboral</a>
+      <a href="psicologia-organizacional.html">Psicología Organizacional</a>
+      <a href="empresas.html">Para Empresas</a>
+      <a href="estudiantes.html">Para Estudiantes</a>
+      <a href="sobre-nosotras.html">Sobre nosotras</a>
+      <a class="btn primary" href="dudas.html">Envíanos tu duda</a>
+    </nav>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="page-hero"><div class="container"><div class="kicker">⚖ Derecho Laboral</div><h1>Tus derechos no deberían necesitar traducción.</h1><p>Explicamos las reglas del trabajo de manera sencilla para entender qué significan en situaciones reales.</p><div class="chips"><span class="chip">Despidos</span><span class="chip">Finiquitos</span><span class="chip">Vacaciones</span><span class="chip">PTU</span><span class="chip">Contratos</span><span class="chip">Conciliación</span></div></div></section>
+<section><div class="container grid-3">
+<div class="card article-card"><div class="tag">Terminación laboral</div><h3>Finiquito vs. liquidación</h3><p>Qué cambia según la forma en que termina la relación laboral.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
+<div class="card article-card"><div class="tag">Vacaciones</div><h3>¿Cuántos días me corresponden?</h3><p>Cómo entender el derecho a vacaciones y su incremento por antigüedad.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
+<div class="card article-card"><div class="tag">Despido</div><h3>¿Me pueden despedir por llegar tarde?</h3><p>Qué revisar antes de asumir que cualquier retardo justifica un despido.</p><a class="more" href="articulo-plantilla.html">Leer →</a></div>
+</div></section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="logo" src="laboralmente-logo.png" alt="LaboralMente">
+        <p style="margin-top:12px">Un espacio para entender el trabajo desde el Derecho Laboral y la Psicología Organizacional.</p>
+      </div>
+      <div><h4>Contenido</h4><p><a href="boletin.html">Boletín</a></p><p><a href="derecho-laboral.html">Derecho Laboral</a></p><p><a href="psicologia-organizacional.html">Psicología Organizacional</a></p></div>
+      <div><h4>LaboralMente</h4><p><a href="empresas.html">Para Empresas</a></p><p><a href="estudiantes.html">Para Estudiantes</a></p><p><a href="sobre-nosotras.html">Sobre nosotras</a></p><p><a href="dudas.html">Envíanos tu duda</a></p></div>
+    </div>
+    <div class="copy">© 2026 LaboralMente Consultoría. Contenido informativo; no sustituye asesoría profesional individual.</div>
+  </div>
+</footer>
+<script>
+const btn=document.querySelector('.menu-btn'), navEl=document.querySelector('.nav-links');
+if(btn&&navEl){btn.addEventListener('click',()=>{navEl.style.display=navEl.style.display==='flex'?'none':'flex';navEl.style.flexDirection='column';navEl.style.position='absolute';navEl.style.top='86px';navEl.style.left='4%';navEl.style.right='4%';navEl.style.background='#FCF9F3';navEl.style.padding='20px';navEl.style.border='1px solid #DDD3C5';navEl.style.borderRadius='16px';});}
+</script>
+
+</body></html>

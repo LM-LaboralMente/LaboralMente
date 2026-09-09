@@ -1,0 +1,22 @@
+LABORALMENTE V2 — ARCHIVOS PARA GITHUB
+
+1. Sube TODOS los archivos de esta carpeta al repositorio LaboralMente.
+2. Si GitHub pregunta si quieres reemplazar index.html y laboralmente-logo.png, debes reemplazarlos.
+3. Conserva todos los archivos en la raíz del repositorio (no dentro de otra carpeta).
+4. GitHub Pages actualizará el sitio automáticamente después del commit.
+
+ARCHIVOS PRINCIPALES
+- index.html: Inicio
+- boletin.html: Boletín
+- derecho-laboral.html
+- psicologia-organizacional.html
+- empresas.html
+- estudiantes.html
+- sobre-nosotras.html
+- dudas.html
+- articulo-plantilla.html: plantilla base para nuevas publicaciones
+- styles.css: colores y diseño general
+- laboralmente-logo.png
+
+IMPORTANTE
+El formulario de 'Envíanos tu duda' todavía es visual. La siguiente etapa es conectarlo a Google Forms/Sheets o a un servicio de formularios.
