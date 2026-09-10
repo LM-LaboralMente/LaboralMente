@@ -89,7 +89,7 @@ section{padding:76px 0}
 .banner h2{color:white}
 .banner p{color:#e9efeb;margin:12px 0 20px}
 .page-hero{padding:62px 0;background:var(--crema);border-bottom:1px solid var(--line)}
-.page-hero h1{font-size:clamp(42px,5vw,64px)}
+..page-hero h1{font-size:clamp(36px,4vw,52px)}
 .page-hero p{font-family:Georgia,"Times New Roman",serif;font-size:19px;max-width:760px}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
 .filter{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;font-size:13px}
